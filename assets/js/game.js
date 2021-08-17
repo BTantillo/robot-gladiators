@@ -12,7 +12,6 @@ var playerAttack = 10;
 var playerMoney = 10;
 
 
-
 var enemyNames = ["Roborto", "Amy Andriod", "Robo Trumble"];
 var enemyHealth = 50;
 var enemyAttack =12;
