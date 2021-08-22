@@ -98,7 +98,7 @@ else {
         " now has " + 
         playerInfo.health + 
         " health remaining."
-        ); promptFight
+        );
 
     // check player's health
     if (playerInfo.health <= 0) {
