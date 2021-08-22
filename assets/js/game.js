@@ -121,6 +121,7 @@ else {
         playerInfo.reset();
 
     for(var i = 0; i < enemyInfo.length; i++) {
+        console.log(playerInfo);
     if (playerInfo.health > 0) {
         window.alert("Welcome to Robot Gladiators! Round " + ( i + 1 ));
         
@@ -128,6 +129,8 @@ else {
         var pickedEnemyObj = enemyInfo[i];
             pickedEnemyObj.health = randomNumber(40, 60);
             fight(pickedEnemyObj);
+
+        console.log(pickedEnemyObj);
 
             //if player is still alvie and we're not at the last enemy in the array
             if (playerInfo.health > 0 && i < enemyInfo.length - 1) {
@@ -262,10 +265,6 @@ var enemyInfo = [
     }
 ];
 
-console.log(enemyInfo);
-console.log(enemyInfo[0]);
-console.log(enemyInfo[0].name);
-console.log(enemyInfo[0]['attack']);
 
 //start the game when the page loads
 startGame();
