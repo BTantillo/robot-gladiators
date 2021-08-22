@@ -38,9 +38,16 @@ return false;
 
 //fight function
 var fight = function(enemy) { 
+
+var isPlayerTurn = true;
+
+    if (Math.random() > 0.5) {
+        isPlayerTurn = false;
+    }
     //Fight function statements
  //repeat and execute as long as the enemy-robot is alive
     while(playerInfo.health > 0 && enemy.health > 0) {
+        if (isPlayerTurn) {
         if (fightOrSkip()) {
             break;
         }
@@ -56,25 +63,42 @@ var fight = function(enemy) {
 
     enemy.health = Math.max(0, enemy.health - damage);
     console.log(
-    playerInfo.name + " attacked " + enemy.name + ". " + enemy.name + " now had " + enemy.health + " health remaining." );
+    playerInfo.name + 
+        " attacked " + 
+        enemy.name + 
+        ". " + 
+        enemy.name + 
+        " now had " + 
+        enemy.health + 
+        " health remaining." );
 
 
     // check enemy's health
     if (enemy.health <= 0) {
     window.alert(enemy.name + " has died!");
+    playerInfo.money = playerInfo.money + 20;
     break;
     }
     else {
     window.alert(enemy.name + " still has " + enemy.health + " health left.");
     }
     //Subtract the value of 'enemy.attack' from the value of 'playerInfo.health' and use that result to update the value in the 'playerInfo.health'variable.
-    
+}
+else {
     var damage = randomNumber(enemy.attack - 3, enemy.attack);
 
     playerInfo.health = Math.max(0, playerInfo.health - damage);
     //Log a resulting message to the console so we know that it worked.
     console.log(
-        enemy.name + " attacked " + playerInfo.name + ". " + playerInfo.name + " now has " + playerInfo.health + " health remaining.");
+        enemy.name + 
+        " attacked " + 
+        playerInfo.name + 
+        ". " + 
+        playerInfo.name + 
+        " now has " + 
+        playerInfo.health + 
+        " health remaining."
+        );
     // check player's health
     if (playerInfo.health <= 0) {
     window.alert(playerInfo.name + " has died!");
@@ -84,7 +108,9 @@ var fight = function(enemy) {
     window-alert(playerInfo.name + " still has " + playerInfo.health+ " health left.");
     } 
 }  
+    isPlayerTurn = !isPlayerTurn;
 }
+};
     // if player did not choose fight or skip in prompt
 
 
